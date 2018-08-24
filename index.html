@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset=“utf-8” />
+   <meta http-equiv=“X-UA-Compatible” content=“IE=edge”>
+   <title>Game</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+   <div>
+       <h1>Question Game</h1>
+       <p>Question: <span id="question"></span></p>
+       <p>Score: <span id="score"></span></p>
+   </div>
+   <script>
+
+   var questions = [
+       { q: "Coding is cool", a: "t"},
+       { q: "Homework sucks", a: "t"},
+       { q: "traffic is awesome in the morning", a: "f"},
+       { q: "clocks go counterclockwise", a: "f"},
+       { q: "It´s cold outside", a: "f"}
+   ];
+   var score = 0;
+   var index = 0;
+   document.getElementById("question").innerHTML=(questions[index].q)
+
+
+   var userInput;
+
+   document.onkeyup = function(event){
+       userInput = event.key;
+
+   if (questions[index].a === userInput){
+       score++;
+       document.getElementById("score").textContent = score;
+       alert("You´re right!");
+       index++;
+       document.getElementById("question").innerHTML=(questions[index].q)
+       }
+   else {
+       alert("No, you´re dumb!");
+       index++;
+       document.getElementById("question").innerHTML=(questions[index].q)
+       }
+
+   }
+
+
+
+
+
+   </script>
+</body>
+</html>
